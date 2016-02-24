@@ -1,6 +1,5 @@
 <hello>
-
   <script>
-    this.name = ''
+    this.name = opts.name || ''
   </script>
 </hello>
