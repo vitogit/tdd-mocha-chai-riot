@@ -18,5 +18,11 @@ describe('Hello world spec', function() {
   it('mounts a hello tag with a setted name', function() {  
     tag = riot.mount('hello', {name: 'Carl'})[0]
     expect(tag.name).to.be.eq('Carl')
-  })    
+  })
+  
+  it('prints <h1>Hello {name}</h1> ', function() {  
+    tag = riot.mount('hello', {name: 'Carl'})[0]
+    var tagText = document.querySelector('hello > h1').textContent
+    expect(tagText).to.be.eq('Hello Carl') 
+  })       
 })
