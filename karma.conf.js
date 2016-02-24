@@ -11,7 +11,7 @@ module.exports = function(config) {
     ],
     files: [
       'node_modules/chai/chai',
-      'test/**/*.tag',
+      'src/**/*.tag',
       'test/**/*.js'
     ],
     preprocessors: {
