@@ -1,6 +1,8 @@
 # Tutorial: Using TDD with Riot+mocha+chai 
 TDD using mocha+chai to test Riot tags.
 Riot is a React- like user interface library http://riotjs.com.
+Mocha is a feature-rich JavaScript test framework https://mochajs.org/
+Chai is a BDD / TDD assertion library http://chaijs.com/
 
 ##Installation
 You can read the tutorial, or just install the repo.
