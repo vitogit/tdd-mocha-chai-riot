@@ -20,6 +20,6 @@ module.exports = function(config) {
     browsers: ['PhantomJS'],
     reporters: ['mocha'],
     failOnEmptyTestSuite: false,
-    autoWatch: true  
+    singleRun: true
   })
 }
