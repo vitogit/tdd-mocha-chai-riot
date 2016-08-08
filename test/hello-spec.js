@@ -29,6 +29,6 @@ describe('Hello world spec', function() {
   it('transform name to uppercase', function() {
     tag = riot.mount('hello', {name: 'Gareth'})[0]
     tag.uppercase()
-    expect(tag.name).to.be.eq('Gareth')
+    expect(tag.name).to.be.eq('GARETH')
   })
 })
