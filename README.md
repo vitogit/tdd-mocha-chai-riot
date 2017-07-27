@@ -1,3 +1,4 @@
+Tip: You can read this tutorial in my blog: [Tutorial: Using TDD with Riot+mocha+chai](http://vitomd.com/blog/coding/tutorial_tdd_riot_mocha/)
 # Tutorial: Using TDD with Riot+mocha+chai 
 TDD using mocha+chai to test Riot tags.
 Riot is a React- like user interface library http://riotjs.com.
