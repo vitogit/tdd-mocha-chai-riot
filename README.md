@@ -4,7 +4,7 @@ Riot is a React- like user interface library http://riotjs.com.
 Mocha is a feature-rich JavaScript test framework https://mochajs.org/
 Chai is a BDD / TDD assertion library http://chaijs.com/
 
-##Installation
+## Installation
 You can read the tutorial, or just install the repo.
 
 ``` 
@@ -14,12 +14,12 @@ npm install
 ```
 And then just `npm test` to run the tests.
 
-##Tutorial
+## Tutorial
 This is a simple tutorial about how to setup an environment to do TDD (Test driven development) using karma+mocha+chai to test Riot tags and their properties and functions.You are going to need the last version of Node. Download it from here https://nodejs.org/en/download/ 
 
 We are going to use phantomJs because we need to test the DOM, so an easy setup is to use Karma to run the test.
 
-###Dependencies
+### Dependencies
 Create a new folder called tdd-mocha-chai-riot and generate the package.json file like this
 ```
 mkdir tdd-mocha-chai-riot
@@ -47,7 +47,7 @@ Or also you can execute this:
 npm install chai karma karma-chai karma-mocha karma-mocha-reporter karma-phantomjs-launcher karma-riot phantomjs-prebuilt riot --save-dev
 ```
 
-###Config
+### Config
 Then we need to create a new file to config Karma, create a new file karma.conf.js with this content
 ```
 module.exports = function(config) {
@@ -127,7 +127,7 @@ So we need to create the tag. To do so, we create a new ‘src’ folder and a h
 ```
 Run `npm test` again, and it will pass. So we completed the first TDD iteration.
 
-###Second TDD iteration: has a name property
+### Second TDD iteration: has a name property
 Now that we know that the tag exist we can add also this `expect(tag.isMounted).to.be.true` to check if it was mounted, because riot tags have a isMounted property.  In general it’s not recommended to have two expectations in the same test, but as we are testing the same behavior I think it's fine . You can read more here http://betterspecs.org/#single . We can update the expectation description to “mount a hello tag” to describe exactly what we are testing.
 
 The next goal is: given a name parameter, print Hello {name}. We need a property called name, so we can pass it as a parameter (when mounting) and write Hello {name}. Let's write a failing test like this
@@ -150,7 +150,7 @@ Run the test and of course it fails. Let’s make it pass. Edit the hello.tag an
 ```
 This way, Riot will know that our tag has a "name" property. Run the test again and it will work. 
 
-###Refactor: Move duplicate code to before hook
+### Refactor: Move duplicate code to before hook
 Now that we have confidence that the code is good, let's refactor it a little bit. As you can see we have duplicate code in our tests. Let’s use the mocha before hook, so it will only execute one time. Move the duplicate code to a before hook, editing the tests
 ```javascript
   before(function() {
@@ -161,7 +161,7 @@ Now that we have confidence that the code is good, let's refactor it a little bi
 ```
 Run the tests again, and it should pass.
 
-###Third iteration: mounts a hello tag with a setted name
+### Third iteration: mounts a hello tag with a setted name
 Our next goal is to mount the tag passing the name property. Let´s write the failing test
 ```javascript
   it('mounts a hello tag with a setted name', function() {  
@@ -188,12 +188,12 @@ This shows why TDD is useful: when we introduce new functionality we can break t
 ```
 Run the test again and it should pass.
 
-###Refactor: Using karma autowatch to automatically run the tests
+### Refactor: Using karma autowatch to automatically run the tests
 Running `npm test` each time could be a little slow, so we can add `autoWatch: true` to our karma.conf.js so it will rerun the test each time a file is modified. Also remove the `singleRun: true,”` line. This will run the tests each time we save the files, so we can have a fast feedback loop when doing TDD.
 
 Now if we ‘run test’ again, karma will wait for changes. Let´s edit a test just to confirm this. For instance, we can change the second expectation to `expect(tag.isMounted).to.be.false` and then check the console. karma automatically run the test and shows the failing test. Let´s fix the tests again changing `expect(tag.isMounted).to.be.true` and now all tests will pass.
 
-###Fourth iteration: prints \<h1>Hello {name}\</h1>
+### Fourth iteration: prints \<h1>Hello {name}\</h1>
 Next, we want to show the Hello {name} inside a H1 tag, so let's write a new test and learn how to use the querySelector method.
 ```javascript
   it('prints <h1>Hello {name}</h1> ', function() {  
@@ -213,7 +213,7 @@ As you can see we are using `document.querySelector('hello > h1').textContent`. 
 ```
 Now if you check the console all tests will pass.
 
-###Fifth iteration: Transform name to uppercase
+### Fifth iteration: Transform name to uppercase
 We can also add functions to our tag and test those functions. Let’s write a simple test that call a custom function called uppercase and expect the name to be converted to uppercase:
 ```javascript
   it('transform the name to uppercase', function() {
