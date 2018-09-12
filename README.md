@@ -18,7 +18,7 @@ And then just `npm test` to run the tests.
 ## Tutorial
 This is a simple tutorial about how to setup an environment to do TDD (Test driven development) using karma+mocha+chai to test Riot tags and their properties and functions.You are going to need the last version of Node. Download it from here https://nodejs.org/en/download/ 
 
-We are going to use phantomJs because we need to test the DOM, so an easy setup is to use Karma to run the test.
+We are going to use ChromeHeadless because we need to test the DOM, so an easy setup is to use Karma to run the test.
 
 ### Dependencies
 Create a new folder called tdd-mocha-chai-riot and generate the package.json file like this
@@ -30,22 +30,21 @@ npm init
 `npm init` will generate the package.json file, it will ask you for some info, use the defaults values. Then edit package.json and add the devDependencies (this is how it will look https://github.com/vitogit/tdd-mocha-chai-riot/blob/master/package.json) 
 ```
   "devDependencies": {
-    "chai": "^3.5.0",
-    "karma": "^0.13.21",
+    "chai": "^4.1.2",
+    "karma": "^3.0.0",
     "karma-chai": "^0.1.0",
-    "karma-mocha": "^0.2.2",
-    "karma-mocha-reporter": "^1.2.1",
-    "karma-phantomjs-launcher": "^1.0.0",
-    "karma-riot": "^1.0.1",
-    "mocha": "^2.4.5",
-    "phantomjs-prebuilt": "^2.1.4",
-    "riot": "^2.3.15"
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-mocha": "^1.3.0",
+    "karma-mocha-reporter": "^2.2.5",
+    "karma-riot": "^2.0.0",
+    "mocha": "^5.2.0"
   }
 ```
 
 Or also you can execute this:
 ```
-npm install chai karma karma-chai karma-mocha karma-mocha-reporter karma-phantomjs-launcher karma-riot phantomjs-prebuilt riot --save-dev
+npm install chai karma karma-chai karma-mocha karma-mocha-reporter karma-chrome-launcher karma-riot --save-dev
+npm install riot
 ```
 
 ### Config
@@ -58,19 +57,21 @@ module.exports = function(config) {
     plugins: [
       'karma-mocha',
       'karma-mocha-reporter',
-      'karma-phantomjs-launcher',
+      'karma-chrome-launcher',
       'karma-chai',
       'karma-riot'
     ],
     files: [
-      'node_modules/chai/chai',
+      {
+        pattern: 'node_modules/chai/chai.js', watched: false
+      },
       'src/**/*.tag',
       'test/**/*.js'
     ],
     preprocessors: {
       '**/*.tag': ['riot']
     },
-    browsers: ['PhantomJS'],
+    browsers: ['ChromeHeadless'],
     reporters: ['mocha'],
     failOnEmptyTestSuite: false,
     singleRun: true  

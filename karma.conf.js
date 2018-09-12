@@ -5,19 +5,21 @@ module.exports = function(config) {
     plugins: [
       'karma-mocha',
       'karma-mocha-reporter',
-      'karma-phantomjs-launcher',
+      'karma-chrome-launcher',
       'karma-chai',
       'karma-riot'
     ],
     files: [
-      'node_modules/chai/chai',
+      {
+        pattern: 'node_modules/chai/chai.js', watched: false
+      },
       'src/**/*.tag',
       'test/**/*.js'
     ],
     preprocessors: {
       '**/*.tag': ['riot']
     },
-    browsers: ['PhantomJS'],
+    browsers: ['ChromeHeadless'],
     reporters: ['mocha'],
     failOnEmptyTestSuite: false,
     autoWatch: true  
