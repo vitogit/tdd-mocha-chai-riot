@@ -1,7 +1,7 @@
 {
   "name": "tdd-mocha-chai-riot",
-  "version": "1.0.0",
-  "description": "TDD using mocha+chai to test RiotJs tags",
+  "version": "1.1.0",
+  "description": "TDD using karma+mocha+chai to test RiotJs tags",
   "main": "index.js",
   "scripts": {
     "test": "karma start"
@@ -9,7 +9,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/vitogit/tdd-mocha-chai-riot"
-  },  
+  },
   "keywords": [
     "mocha",
     "chai",
@@ -20,15 +20,16 @@
   "author": "vitogit",
   "license": "MIT",
   "devDependencies": {
-    "chai": "^3.5.0",
-    "karma": "^0.13.21",
+    "chai": "^4.1.2",
+    "karma": "^3.0.0",
     "karma-chai": "^0.1.0",
-    "karma-mocha": "^0.2.2",
-    "karma-mocha-reporter": "^1.2.1",
-    "karma-phantomjs-launcher": "^1.0.0",
-    "karma-riot": "^1.0.1",
-    "mocha": "^2.4.5",
-    "phantomjs-prebuilt": "^2.1.4",
-    "riot": "^2.3.15"
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-mocha": "^1.3.0",
+    "karma-mocha-reporter": "^2.2.5",
+    "karma-riot": "^2.0.0",
+    "mocha": "^5.2.0"
+  },
+  "dependencies": {
+    "riot": "3.11.1"
   }
 }
